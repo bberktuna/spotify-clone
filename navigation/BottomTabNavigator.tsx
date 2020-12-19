@@ -19,10 +19,11 @@ import {
   TabThreeParamList,
   TabFourParamList,
 } from "../types";
-import HomeScreen from "./../screens/HomeScreen/index";
-import SearchScreen from "./../screens/SearchScreen/index";
-import LibraryScreen from "./../screens/LibraryScreen/index";
-import PremiumScreen from "./../screens/PremiumScreen/index";
+import HomeScreen from "./../screens/HomeScreen";
+import SearchScreen from "./../screens/SearchScreen";
+import LibraryScreen from "./../screens/LibraryScreen";
+import PremiumScreen from "./../screens/PremiumScreen";
+import AlbumScreen from "../screens/AlbumScreen";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -74,8 +75,7 @@ export default function BottomTabNavigator() {
   );
 }
 
-// Each tab has its own navigation stack, you can read more about this pattern here:
-// https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
+// ! ------------------ STACKS FOR THE EACH SCREEN ------------------
 const TabOneStack = createStackNavigator<TabOneParamList>();
 
 function TabOneNavigator() {
@@ -85,6 +85,11 @@ function TabOneNavigator() {
         name="HomeScreen"
         component={HomeScreen}
         options={{ headerTitle: "Home" }}
+      />
+      <TabOneStack.Screen
+        name="AlbumScreen"
+        component={AlbumScreen}
+        options={{ headerTitle: "Album" }}
       />
     </TabOneStack.Navigator>
   );
